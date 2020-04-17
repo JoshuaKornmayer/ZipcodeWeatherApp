@@ -4,7 +4,8 @@
   "description": "zipcode weather app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "testing 1,2,3",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/JoshuaKornmayer/ZipcodeWeatherApp#readme",
   "dependencies": {
-    "moment": "^2.24.0"
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.28"
   }
 }

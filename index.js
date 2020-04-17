@@ -2,6 +2,13 @@
 
 //https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js
 
+// var Moment = 'moment-timezone';
+	
+	// var timeUpdate = function(){
+	// 	var time = moment();
+	// 	var currentTime = time.tz("America/New_York").format()
+	// 	console.log(currentTime);
+	// };
 
 $(document).ready(function(){
 	
@@ -17,9 +24,15 @@ $(document).ready(function(){
 					type: "GET",
 					success: function(result){
 					console.log(result);
-						var disp = display(result);
 
-						$('#presentData').html(disp);
+
+					var disp = display(result);
+					$('#presentData').html(disp);
+
+					var dispClock = showTime(result);
+					$('.clock').html(dispClock);
+
+
 
 					// disp.empty();
 					// var x = disp.innerHTML = "Weather: " + result.weather[0].main + " Description:" ;
@@ -42,11 +55,21 @@ $(document).ready(function(){
 });
 
 function display(result){
-	return "<h3>Weather Forecast: "+ result.weather[0].main +" </h3>" + 
+	return 	"<h3>Today's weather forecast for: " + result.name + " </h3>" +
+			"<h3>Forecast: "+ result.weather[0].main +" </h3>" + 
 			"<h3>Description: "+ result.weather[0].description +" </h3>" +
 			"<h3>Temperature: "+ result.main.temp +" </h3>";
 }
 
+function showTime(result){
+	var lat = result.coord.lat;
+	var log = result.coord.lon;
+
+	var time = moment();
+	var currentTime = time.tz(result.name).format('HH:mm')
+	console.log(currentTime);
+	return "<h3>The current time is: " + currentTime +"</h3>"
+}
 
 
 
