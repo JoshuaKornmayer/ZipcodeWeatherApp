@@ -24,15 +24,12 @@ $(document).ready(function(){
 					type: "GET",
 					success: function(result){
 					console.log(result);
-
-
+					
 					var disp = display(result);
 					$('#presentData').html(disp);
 
 					var dispClock = showTime(result);
 					$('.clock').html(dispClock);
-
-
 
 					// disp.empty();
 					// var x = disp.innerHTML = "Weather: " + result.weather[0].main + " Description:" ;
@@ -64,30 +61,23 @@ function display(result){
 function showTime(result){
 	var lat = result.coord.lat;
 	var log = result.coord.lon;
+	console.log(lat);
+	console.log(log);
 
-	var time = moment();
-	var currentTime = time.tz(result.name).format('HH:mm')
-	console.log(currentTime);
+	$.ajax({
+		url: "http://api.timezonedb.com/v2.1/get-time-zone?key=6MKQQZGX0OWK&format=xml&by=position&lat=" + lat + "&lng=" + log,
+		type: "GET",
+		success: function(zone){
+		console.log(zone);
+
+		
+		}
+
+	})
+
+	var time = moment(result);
+		var currentTime = time.tz(zone.zoneName).format()
+		console.log(currentTime);
 	return "<h3>The current time is: " + currentTime +"</h3>"
 }
 
-
-
-// $(document).ready(function(){
-// 	$.ajax({
-// 		url: "http://api.openweathermap.org/data/2.5/weather?zip=94040,us&appid=0e715fd6e4dd427ee64eeda6aab95586",
-// 		type: "GET",
-// 		success: function(result){
-// 			console.log(result);
-// 		},
-// 		error: function(error){
-// 			console.log(error);
-// 		}
-// 	})
-// })
-
-// $('.mainButton').on("click", function(x){
-// 	$.get('api.openweathermap.org/data/2.5/weather?zip={zip code},{country code}&appid={0e715fd6e4dd427ee64eeda6aab95586}', function(x){
-// 		console.log(x);
-// 	})
-// })
