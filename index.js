@@ -82,7 +82,8 @@ function finalZone(finalZone){
 		var time = moment();
 		var currentTime = time.tz(finalZone.zoneName).format()
 		console.log(currentTime);
-		return "<h3>The current time is: " + currentTime +"</h3>"
-		}
+		$('.clock').html("<h3>The current time is: " + currentTime + "</h3>");
+	}
+        
 
 
