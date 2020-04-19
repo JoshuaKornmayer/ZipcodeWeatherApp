@@ -31,10 +31,9 @@ $(document).ready(function(){
 					var dispClock = showTime(result);
 					$('.clock').html(dispClock);
 
-					// disp.empty();
-					// var x = disp.innerHTML = "Weather: " + result.weather[0].main + " Description:" ;
-					// // JSON.stringify(result.weather[0].main);
-					// disp.append(x);
+					// var dispClock = finalZone()
+					// $('.clock').text(dispClock);
+
 
 					$('#zipcode').val('');
 					},
@@ -65,19 +64,25 @@ function showTime(result){
 	console.log(log);
 
 	$.ajax({
-		url: "http://api.timezonedb.com/v2.1/get-time-zone?key=6MKQQZGX0OWK&format=xml&by=position&lat=" + lat + "&lng=" + log,
+		url: "http://api.timezonedb.com/v2.1/get-time-zone?key=6MKQQZGX0OWK&format=json&by=position&lat=" + lat + "&lng=" + log,
 		type: "GET",
-		success: function(zone){
-		console.log(zone);
+		success: function(result){
+			finalZone(result);
+		}
+	})
+		// console.log(zone);
+
+		// var finalZone = zone;
 
 		
+
+	
+}
+function finalZone(finalZone){
+		var time = moment();
+		var currentTime = time.tz(finalZone.zoneName).format()
+		console.log(currentTime);
+		return "<h3>The current time is: " + currentTime +"</h3>"
 		}
 
-	})
-
-	var time = moment(result);
-		var currentTime = time.tz(zone.zoneName).format()
-		console.log(currentTime);
-	return "<h3>The current time is: " + currentTime +"</h3>"
-}
 
