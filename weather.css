@@ -1,0 +1,26 @@
+.title{
+	display: flex;
+	justify-content: center;
+	background-color: blue;
+	color: white;
+}
+
+.bar{
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+	background-color: #00E0FC;
+}
+
+.clock{
+	display: flex;
+	justify-content: center;
+	background-color: blue;
+	color: white;
+}
+
+#presentData{
+	background-color: #00E0FC;
+	color: white;
+}
+

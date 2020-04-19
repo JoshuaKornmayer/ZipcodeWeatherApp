@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!--The below meta tag <meta charset= "UTF-8"> enables the HTML document to support all the languages that exist on Earth. Without this tag, a browser may not be able to correctly display any characters that don't belong to the basic Latin alphabet. -->
+    <meta charset="utf-8">
+    <!--The below meta tag tells intertnet explorer to use the latest rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- This below meta tag sets the page width to the size of the device and sets the zoom width to 1 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- My custom css stylesheet link is below -->
+    <link rel="stylesheet" href="weather.css">
+    <!-- This will be the name of our page as it shows up in our tab -->
 	<title>Zipcode Weather Forecast</title>
+	<!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- CDN for Glyphicons. A CDN is a service that accelerates internet content delivery -->
+    
 </head>
 <body>
-	<div class="main">
+	<div class="container-fluid title">
 
 		<h1>Enter Your Zipcode Below</h1>
+	</div>
+	<div class="container-fluid bar">
 
 		<input type="text" name="zipcode" id="zipcode">
 
@@ -14,7 +30,10 @@
 
 	</div>
 
-	<div class="container" id="presentData">
+	<div class="container-fluid" id="presentData">
+		<div class="row">
+			
+		</div>
 		
 	</div>
 
